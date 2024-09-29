@@ -25,3 +25,32 @@ var geojsonData = {
 
 // Add GeoJSON layer to map
 L.geoJSON(geojsonData).addTo(map);
+
+//JavaScript to handle the form validation
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent page reload on form submission
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    var formFeedback = document.getElementById('formFeedback');
+
+    // Simple form validation
+    if (name && email && message) {
+        formFeedback.style.display = 'block';
+        formFeedback.classList.add('alert-success');
+        formFeedback.classList.remove('alert-danger');
+        formFeedback.innerHTML = 'Thank you, ' + name + '. Your message has been sent!';
+
+        // Clear the form
+        document.getElementById('contactForm').reset();
+    } else {
+        formFeedback.style.display = 'block';
+        formFeedback.classList.add('alert-danger');
+        formFeedback.classList.remove('alert-success');
+        formFeedback.innerHTML = 'Please fill in all fields.';
+    }
+});
+
+
+
