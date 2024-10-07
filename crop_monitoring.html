@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Monitoring Using Sentinel-2 Data in Kiambu County</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px; /* Set the height of the map */
+            margin-bottom: 20px; /* Space below the map */
+        }
+        .iframe-container {
+            max-width: 800px; /* Set the maximum width of the iframe */
+            margin: 0 auto; /* Center the iframe */
+        }
+        .text-container {
+            max-width: 800px; /* Match the text width to the iframe width */
+            margin: 0 auto; /* Center the text container */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Erick Mulama Shituku</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#map">Web Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="text-container"><h2>Crop Monitoring in Kiambu County Using Sentinel-2 Data</h2></div>
+<!-- Web Map Section -->
+<div class="iframe-container">
+    <iframe src="https://mulamapython.projects.earthengine.app/view/crop-monitoring" 
+            width="100%" 
+            height="600px" 
+            style="border:none;">
+    </iframe>
+</div>
+
+<!-- Project Details Section -->
+<div class="text-container">
+    <section class="container mt-5">        
+        <p>This project focuses on monitoring crop health in Kiambu County, Kenya, using satellite data from the Sentinel-2 Surface Reflectance dataset. The objective is to assess the vegetation condition over the region of interest (ROI) and calculate key metrics like the Normalized Difference Vegetation Index (NDVI) to identify healthy and stressed vegetation areas.</p>
+
+        <p>The region of interest was defined using the FAO GAUL dataset, selecting Kiambu County as the target area. The Sentinel-2 imagery was filtered for the year 2020, ensuring less than 5% cloud cover to avoid interference with the vegetation analysis. A median composite image was created to represent the vegetation condition over the entire year, which was then clipped to the boundaries of Kiambu County.</p>
+
+        <p>Using the Near-Infrared (NIR) and Red bands from the Sentinel-2 dataset, the NDVI was calculated. NDVI is a widely used metric in vegetation monitoring, as it provides insight into the health of vegetation based on the difference between reflected NIR and absorbed red light. Higher NDVI values typically indicate healthier vegetation.</p>
+
+        <h4>NDVI Analysis in Kiambu County</h4>
+        <p>The calculated NDVI values ranged from -0.2 to 0.8, covering the typical range for vegetation health. These values were used to visualize the spatial distribution of vegetation health across the county. Healthy vegetation (NDVI > 0.8) was identified and highlighted in green, while stressed vegetation (NDVI < 0.4) was masked and shown in red. The final map provided a clear visualization of both healthy and stressed vegetation areas within Kiambu County.</p>
+
+        <h4>Vegetation Health Insights</h4>
+        <p>The results of the analysis showed a significant variation in vegetation health across Kiambu County. Areas with higher NDVI values, represented by green patches on the map, corresponded to regions with dense, healthy vegetation. In contrast, areas with lower NDVI values indicated stressed or sparsely vegetated regions. This information can be crucial for agricultural planning, allowing stakeholders to identify areas that may need irrigation or other interventions to improve crop yields.</p>
+
+        <p>In addition to NDVI, the project can be extended to calculate other vegetation indices or metrics, such as fractional vegetation cover or surface temperature, to provide a more comprehensive understanding of the environmental conditions affecting crop health in the region.</p>
+
+        <p>The analysis was conducted using Google Earth Engine (GEE), a powerful cloud-based platform for processing geospatial data. GEE allows for seamless integration of satellite imagery, statistical analysis, and visualization tools, making it an excellent choice for large-scale environmental monitoring projects like this one.</p>
+
+        <h4>Future Applications</h4>
+        <p>This crop monitoring method can be applied to other regions or expanded to monitor changes in vegetation health over time. By analyzing satellite data over multiple years, trends in vegetation growth, health, and stress can be identified, providing valuable insights for sustainable agriculture and land management practices.</p>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-4">
+    <p> Erick Mulama Shituku 2024.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([-1.2921, 36.8219], 10); // Set to Nairobi, Kenya (you can change the coordinates)
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker
+    L.marker([-1.2921, 36.8219]).addTo(map) // Add marker at the same coordinates
+        .bindPopup('Nairobi')
+        .openPopup();
+</script>
+</body>
+</html>

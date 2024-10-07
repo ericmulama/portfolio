@@ -1,0 +1,102 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /* Improve readability */
+    background-color: #f4f4f4; /* Slightly darker background for contrast */
+    color: #333; /* Dark text for better visibility */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #ffffff; /* White background for the navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.navbar-brand {
+    font-size: 1.8rem; /* Larger font for the brand */
+    font-weight: bold;
+    color: #007bff; /* Brand color */
+}
+
+.navbar-nav .nav-link {
+    margin-right: 30px; /* Increase margin for spacing */
+    font-size: 1.1rem; /* Slightly larger font for links */
+    color: #333; /* Dark text color */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #007bff; /* Active link color */
+    font-weight: bold; /* Bold active link */
+}
+
+/* Section Styles */
+.container {
+    margin-top: 50px; /* Consistent margin for containers */
+}
+
+section {
+    padding: 80px 0; /* More padding for sections */
+}
+
+h2 {
+    margin-bottom: 30px; /* Increased spacing below headings */
+    font-size: 2rem; /* Larger font size for headings */
+    color: #007bff; /* Consistent color for headings */
+}
+
+/* Projects Section */
+#projects .col-md-4 {
+    background-color: #ffffff; /* White background for project cards */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Inner padding */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    margin-bottom: 30px; /* Space between project cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+#projects .col-md-4:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Map Section */
+#mapid {
+    margin-top: 30px; /* Top margin for map */
+    border-radius: 8px; /* Rounded corners for the map */
+    border: 1px solid #ddd; /* Light border around map */
+}
+
+/* Contact Form Styles */
+form {
+    max-width: 600px; /* Centered form */
+    margin: 0 auto; /* Center alignment */
+    background-color: #ffffff; /* White background for form */
+    padding: 20px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.form-group {
+    margin-bottom: 30px; /* Increased spacing for form groups */
+}
+
+#formFeedback {
+    text-align: center; /* Center feedback text */
+    margin-top: 20px; /* Spacing above feedback */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #007bff; /* Blue background for footer */
+    color: white; /* White text for contrast */
+    padding: 20px; /* Inner padding */
+    margin-top: 30px; /* Spacing above footer */
+    border-radius: 8px; /* Rounded corners for footer */
+    text-align: center; /* Center footer text */
+}

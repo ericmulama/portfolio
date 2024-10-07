@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetation and Thermal Analysis Using Landsat Imagery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px; /* Set the height of the map */
+            margin-bottom: 20px; /* Space below the map */
+        }
+        .iframe-container {
+            max-width: 800px; /* Set the maximum width of the iframe */
+            margin: 0 auto; /* Center the iframe */
+        }
+        .text-container {
+            max-width: 800px; /* Match the text width to the iframe width */
+            margin: 0 auto; /* Center the text container */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Erick Mulama Shituku</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#map">Web Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Web Map Section -->
+<div class="iframe-container">
+    <iframe src="https://ericmulama.users.earthengine.app/view/vegetation-and-thermal-analysis-using-landsat-imagery" 
+            width="100%" 
+            height="600px" 
+            style="border:none;">
+    </iframe>
+</div>
+
+<!-- Project Details Section -->
+<div class="text-container">
+    <section class="container mt-5">
+        <h2>Vegetation Analysis and Surface Emissivity Mapping</h2>
+        <p>The project aimed to analyze vegetation health and surface thermal characteristics 
+            over a defined Region of Interest (ROI) using satellite data from the Landsat 8 
+            collection. The analysis involved calculating the Normalized Difference Vegetation 
+            Index (NDVI), Fractional Vegetation Cover (FV), Thermal Infrared Mapping, and 
+            Surface Emissivity, visualizing the results on a map. The project was implemented 
+            in Google Earth Engine (GEE) using JavaScript.</p>
+
+        <p>Satellite imagery was sourced from the Landsat 8 collection. The imagery was filtered 
+            to include only those with less than 1% cloud cover and within the year 2023. The 
+            individual images were then merged into a single composite image, representing the 
+            median of all images for that period. This composite was clipped to the ROI, so only 
+            the relevant part of the imagery was retained.</p>
+
+        <p>NDVI was calculated to assess the health of vegetation within the ROI. It used the 
+            difference between the near-infrared and red bands of the satellite imagery to determine 
+            the amount of healthy vegetation. Healthy vegetation reflected more near-infrared light 
+            and absorbs red light, making NDVI an important metric for environmental monitoring.</p>
+
+        <p>The minimum and maximum NDVI values in the ROI were computed. These values provide insight 
+            into the range of vegetation health across the area, from the least vegetated to the most 
+            vegetated zones.</p>
+
+        <p>Fractional Vegetation was derived from the NDVI values, representing the fraction of ground 
+            covered by vegetation. This gave a more detailed understanding of how much of the area was 
+            covered by vegetation rather than just the health of vegetation.</p>
+
+        <p>The project also calculated the surface temperature of the area using thermal infrared data 
+            from the satellite. This data helped map temperature variations on the surface, which was 
+            useful for identifying hotspots or areas of cooler temperatures.</p>
+
+        <p>Emissivity measured how efficiently the earth’s surface emitted thermal radiation. It was 
+            calculated using the Fractional Vegetation data. Higher emissivity values indicated that 
+            the surface emitted more radiation, which was essential for understanding the energy balance 
+            and climate conditions of the area.</p>
+
+        <p>Lastly, all the calculated layers (NDVI, Fractional Vegetation, Thermal Map, and Surface 
+            Emissivity) were visualized on the map. These visualizations provided a comprehensive view 
+            of vegetation health, surface temperature variations, and emissivity in the region of interest.
+            These results can be used for environmental monitoring, land-use planning, and assessing the 
+            effects of climate change on vegetation and surface conditions.</p>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-4">
+    <p> Erick Mulama Shituku 2024.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([-1.2921, 36.8219], 10); // Set to Nairobi, Kenya (you can change the coordinates)
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker
+    L.marker([-1.2921, 36.8219]).addTo(map) // Add marker at the same coordinates
+        .bindPopup('Nairobi')
+        .openPopup();
+</script>
+</body>
+</html>

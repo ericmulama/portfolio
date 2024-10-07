@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIS Data Scientist Portfolio</title>
+    <title>Erick Mulama Shituku</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">GIS Portfolio</a>
+    <a class="navbar-brand" href="#">Erick Mulama Shituku</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,7 +37,9 @@
 <!-- About Section -->
 <section id="about" class="container mt-5">
     <h2>About Me</h2>
-    <p>I am a GIS Data Scientist with extensive experience in spatial analysis, remote sensing, and geospatial data visualization. My expertise covers areas such as land use mapping, climate change analysis, and environmental monitoring.</p>
+    <p>I am a GIS Data Scientist with extensive experience in spatial analysis, remote sensing, 
+        and geospatial data visualization. My expertise covers areas such as land cover mapping, 
+        climate change analysis, and environmental monitoring.</p>
 </section>
 
 <!-- Projects Section -->
@@ -45,24 +47,32 @@
     <h2>My Projects</h2>
     <div class="row">
         <div class="col-md-4">
-            <h3>Land Cover Mapping</h3>
-            <p>Developed land cover maps for GHG inventory across multiple African countries using satellite imagery.</p>
+            <a href="vegetation_analysis.html">
+                <h3>Vegetation and Thermal Analysis Using Landsat Imagery</h3>
+                <p>Analyzed vegetation health and thermal characteristics within 
+                    a specified region using Landsat imagery and Google Earth Engine, 
+                    facilitating environmental management and decision-making.</p>
+            </a>
         </div>
         <div class="col-md-4">
-            <h3>Blue Carbon Monitoring</h3>
-            <p>Monitored blue carbon ecosystems along the Kenyan coast using Sentinel-2 data and Google Earth Engine.</p>
-        </div>
-        <div class="col-md-4">
+            <a href="crop_monitoring.html">
             <h3>Crop Monitoring</h3>
-            <p>Created an NDVI-based crop monitoring tool using the NEON AOP dataset and Google Earth Engine.</p>
+            <p>reated an NDVI-based crop monitoring tool using the Sentinel-2 dataset and Google Earth Engine.</p>
+        </div>
+        <div class="col-md-4">
+            <a href="time_series_earthquake_data_visualization.html">
+            <h3>Time Series Earth Quake Data Visualization</h3>
+            <p>Created a time series for earth quake data visualization using python</p>
+        </a>
         </div>
     </div>
 </section>
 
+
 <!-- Web Map Section -->
 <section id="map" class="container mt-5">
     <h2>Interactive Web Map</h2>
-    <div id="mapid" style="height: 500px;"></div>
+    <div id="mapid" style="height: 600px;"></div>
 </section>
 
 <!-- Contact Section -->
@@ -84,24 +94,23 @@
         <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
     <div id="formFeedback" style="display:none; margin-top: 20px;" class="alert"></div>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-   (function(){
-      emailjs.init("service_zm1ez1e"); // Your EmailJS User ID
-   })();
-</script>
 </section>
-
 
 <!-- Footer -->
 <footer class="text-center mt-5 py-4">
-    <p>&copy; 2024 GIS Data Scientist Portfolio</p>
+    <p>&copy; Erick Mulama Shituku</p>
 </footer>
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("YOUR_USER_ID"); // Replace with your actual EmailJS user ID
+    })();
+</script>
 <script src="js/scripts.js"></script>
 
 </body>
